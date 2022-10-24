@@ -6,7 +6,7 @@ set -o pipefail
 mas="si" # variable de control para repetir el script o no al llegar al final
 while [[ $mas == "si" ]]
 	do
-		read -p "Introduce el archivo: "  file
+		read -p "Introduce el archivo: "  file # Introducir el nombre completo del archivo a leer. Debe estar en el mismo directorio que el ejecutable.
 
 		file=$(grep -v ">" "${file}" | fold -1 ) # Quitar la cabecera y leer la secuencia letra a letra
 		 
