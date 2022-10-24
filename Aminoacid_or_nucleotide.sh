@@ -15,7 +15,7 @@ while [[ $mas == "si" ]]
 		for n in $file ;
 			do
 				if [[ $n != "A" && $n != "G" && $n != "C" && $n != "T" && $n != "U" && $n != "N" ]] ; 
-				# Condiciones para que sea una secuencia aminoacídica (U en caso de ser ARN y N en caso de que haya         				  nucleotidos desconocidos)
+				# Condiciones para que sea una secuencia aminoacídica (U en caso de ser ARN y N en caso de que haya nucleotidos desconocidos)
 					then
 						# Es una secuencia aminoacidica
 						a=1 # cambio en la variable de control
