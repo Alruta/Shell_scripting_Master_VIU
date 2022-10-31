@@ -5,14 +5,15 @@ set -o pipefail
 
 read -p "Introduce el archivo: "  ADN
 
-ADN_to_show=$(grep -v ">" "${ADN}") # ADN sin cabecera
+ADN_to_show=$(grep -v ">" "${ADN}" | tr -d "\n") # ADN sin cabecera
 
 lenght=$(echo "$ADN_to_show" | wc -L ) # Longitud total de la molécula introducida
 
 echo "A continuación se muestra la secuencia de ADN y su correspondiente en ARN:"
-echo $ADN_to_show
+echo "5'-"$ADN_to_show"-3'"
+echo ""
 ARN=$(echo "$ADN_to_show" | tr T U) # Cambio de T a U para pasar la secuencia de ADN a ARN
-echo $ARN 
+echo "5'-"$ARN"-3'"
 
 ARN_to_count=$(echo "${ARN}" | fold -1) # ARN sin cabecera con 1 letra por linea
 
@@ -44,11 +45,11 @@ for n in $ARN_to_count ;
 	done
 
 # Calculo del porcentaje que supone cada base
-A_porcentage=`echo "scale=4; $A_count / $lenght * 100" | bc` 
-C_porcentage=`echo "scale=4; $C_count / $lenght * 100" | bc` 
-G_porcentage=`echo "scale=4; $G_count / $lenght * 100" | bc` 
-U_porcentage=`echo "scale=4; $U_count / $lenght * 100" | bc` 
-N_porcentage=`echo "scale=4; $N_count / $lenght * 100" | bc` 
+A_porcentage=`echo "scale=4; $A_count / $lenght * 100" | bc -l` #$(( $A_count * 100 / $lenght ))
+C_porcentage=`echo "scale=4; $C_count / $lenght * 100" | bc -l` #$(($C_count * 100 / $lenght ))
+G_porcentage=`echo "scale=4; $G_count / $lenght * 100" | bc -l` #$(($G_count * 100 / $lenght ))
+U_porcentage=`echo "scale=4; $U_count / $lenght * 100" | bc -l` #$(($U_count * 100 / $lenght ))
+N_porcentage=`echo "scale=4; $N_count / $lenght * 100" | bc -l` #$(($N_count * 100/ $lenght ))
 
 # Resultados
 echo ""
