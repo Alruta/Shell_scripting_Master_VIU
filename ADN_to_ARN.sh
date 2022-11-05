@@ -45,11 +45,11 @@ for n in $ARN_to_count ;
 	done
 
 # Calculo del porcentaje que supone cada base
-A_porcentage=`echo "scale=4; $A_count / $lenght * 100" | bc -l` #$(( $A_count * 100 / $lenght ))
-C_porcentage=`echo "scale=4; $C_count / $lenght * 100" | bc -l` #$(($C_count * 100 / $lenght ))
-G_porcentage=`echo "scale=4; $G_count / $lenght * 100" | bc -l` #$(($G_count * 100 / $lenght ))
-U_porcentage=`echo "scale=4; $U_count / $lenght * 100" | bc -l` #$(($U_count * 100 / $lenght ))
-N_porcentage=`echo "scale=4; $N_count / $lenght * 100" | bc -l` #$(($N_count * 100/ $lenght ))
+A_porcentage=`echo "scale=4; $A_count / $lenght * 100" | bc -l` 
+C_porcentage=`echo "scale=4; $C_count / $lenght * 100" | bc -l`
+G_porcentage=`echo "scale=4; $G_count / $lenght * 100" | bc -l` 
+U_porcentage=`echo "scale=4; $U_count / $lenght * 100" | bc -l` 
+N_porcentage=`echo "scale=4; $N_count / $lenght * 100" | bc -l` 
 
 # Resultados
 echo ""
